@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using CabaVS.IdentityMS.Core.Helpers;
 using CabaVS.IdentityMS.Core.Models;
 using CabaVS.IdentityMS.Core.Services;
 using CabaVS.IdentityMS.Infrastructure.Entities;
@@ -13,13 +14,15 @@ namespace CabaVS.IdentityMS.Infrastructure.Services
     {
         private readonly IMapper _mapper;
         private readonly IUnitOfWork _unitOfWork;
+        private readonly IPasswordHasher _passwordHasher;
 
         private IRepository<UserEntity> UserRepository => _unitOfWork.GetRepository<UserEntity>();
 
-        public UserService(IMapper mapper, IUnitOfWork unitOfWork)
+        public UserService(IMapper mapper, IUnitOfWork unitOfWork, IPasswordHasher passwordHasher)
         {
             _mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
             _unitOfWork = unitOfWork ?? throw new ArgumentNullException(nameof(unitOfWork));
+            _passwordHasher = passwordHasher ?? throw new ArgumentNullException(nameof(passwordHasher));
         }
 
         public async Task<User> GetUser(string username, string password, bool isActiveCheck = true)
@@ -28,8 +31,14 @@ namespace CabaVS.IdentityMS.Infrastructure.Services
             if (password == null) throw new ArgumentNullException(nameof(password));
 
             var userEntity = await UserRepository.GetFirstAsync(predicate: x =>
-                x.Username == username && x.Password == password && (!isActiveCheck || !x.IsBlocked));
+                x.Username == username && (!isActiveCheck || !x.IsBlocked));
             if (userEntity == null)
+            {
+                return null;
+            }
+
+            var (hashedPassword, _) = _passwordHasher.Hash(password, userEntity.Salt);
+            if (hashedPassword != userEntity.Password)
             {
                 return null;
             }

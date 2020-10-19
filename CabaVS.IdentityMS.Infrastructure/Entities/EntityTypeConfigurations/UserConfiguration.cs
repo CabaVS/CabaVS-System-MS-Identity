@@ -20,6 +20,7 @@ namespace CabaVS.IdentityMS.Infrastructure.Entities.EntityTypeConfigurations
             builder.Property(x => x.Email).HasMaxLength(MaxLengthConstraints.User.Email).IsRequired();
             builder.Property(x => x.Username).HasMaxLength(MaxLengthConstraints.User.Username).IsRequired();
             builder.Property(x => x.Password).HasMaxLength(MaxLengthConstraints.User.Password).IsRequired();
+            builder.Property(x => x.Salt).HasMaxLength(MaxLengthConstraints.User.Salt).IsRequired();
         }
     }
 }

@@ -1,5 +1,5 @@
 ﻿using CabaVS.IdentityMS.API.Configuration;
-using CabaVS.IdentityMS.API.Services.Abstractions;
+using CabaVS.IdentityMS.Core.Helpers;
 using CabaVS.IdentityMS.Core.Models;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
@@ -8,7 +8,7 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
 
-namespace CabaVS.IdentityMS.API.Services
+namespace CabaVS.IdentityMS.API.Helpers
 {
     public class TokenGenerator : ITokenGenerator
     {

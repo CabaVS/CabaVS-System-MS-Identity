@@ -1,7 +1,7 @@
 using AutoMapper;
 using CabaVS.IdentityMS.API.Configuration;
-using CabaVS.IdentityMS.API.Services;
-using CabaVS.IdentityMS.API.Services.Abstractions;
+using CabaVS.IdentityMS.API.Helpers;
+using CabaVS.IdentityMS.Core.Helpers;
 using CabaVS.IdentityMS.Infrastructure.Contexts;
 using CabaVS.IdentityMS.Infrastructure.Integration;
 using CabaVS.Shared.AspNetCore.API.DTO;
@@ -58,6 +58,7 @@ namespace CabaVS.IdentityMS.API
             });
 
             services.AddScoped<ITokenGenerator, TokenGenerator>();
+            services.AddScoped<IPasswordHasher, PasswordHasher>();
 
             services.AddInfrastructureLayer(Configuration);
 
