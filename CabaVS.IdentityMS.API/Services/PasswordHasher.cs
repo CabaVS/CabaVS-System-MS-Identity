@@ -1,9 +1,9 @@
-﻿using CabaVS.IdentityMS.Core.Helpers;
+﻿using CabaVS.IdentityMS.Core.Services.Abstractions;
 using Microsoft.AspNetCore.Cryptography.KeyDerivation;
 using System;
 using System.Security.Cryptography;
 
-namespace CabaVS.IdentityMS.API.Helpers
+namespace CabaVS.IdentityMS.API.Services
 {
     public class PasswordHasher : IPasswordHasher
     {

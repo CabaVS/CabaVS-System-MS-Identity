@@ -1,6 +1,6 @@
 ﻿using CabaVS.IdentityMS.Core.Models;
 
-namespace CabaVS.IdentityMS.Core.Helpers
+namespace CabaVS.IdentityMS.API.Services.Abstractions
 {
     public interface ITokenGenerator
     {

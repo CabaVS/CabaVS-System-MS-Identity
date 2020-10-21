@@ -1,4 +1,4 @@
-﻿namespace CabaVS.IdentityMS.Core.Helpers
+﻿namespace CabaVS.IdentityMS.Core.Services.Abstractions
 {
     public interface IPasswordHasher
     {

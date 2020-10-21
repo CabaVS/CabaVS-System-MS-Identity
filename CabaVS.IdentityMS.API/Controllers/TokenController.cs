@@ -1,8 +1,8 @@
 ﻿using CabaVS.IdentityMS.API.Configuration.Constants;
 using CabaVS.IdentityMS.API.Controllers.Abstractions;
 using CabaVS.IdentityMS.API.DTO;
-using CabaVS.IdentityMS.Core.Helpers;
-using CabaVS.IdentityMS.Core.Services;
+using CabaVS.IdentityMS.API.Services.Abstractions;
+using CabaVS.IdentityMS.Core.Services.Abstractions;
 using CabaVS.Shared.AspNetCore.API.DTO;
 using Microsoft.AspNetCore.Mvc;
 using System;

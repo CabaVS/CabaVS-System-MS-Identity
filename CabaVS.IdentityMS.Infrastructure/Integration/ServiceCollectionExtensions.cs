@@ -1,8 +1,8 @@
 ﻿using AutoMapper;
-using CabaVS.IdentityMS.Core.Services;
+using CabaVS.IdentityMS.Core.Repositories;
 using CabaVS.IdentityMS.Infrastructure.AutoMapper;
 using CabaVS.IdentityMS.Infrastructure.Contexts;
-using CabaVS.IdentityMS.Infrastructure.Services;
+using CabaVS.IdentityMS.Infrastructure.Repositories;
 using CabaVS.Shared.EFCore.UnitOfWork.Integration;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -35,7 +35,7 @@ namespace CabaVS.IdentityMS.Infrastructure.Integration
 
             serviceCollection.AddEFCoreUnitOfWork();
 
-            serviceCollection.AddScoped<IUserService, UserService>();
+            serviceCollection.AddScoped<IUserRepository, UserRepository>();
         }
     }
 }
