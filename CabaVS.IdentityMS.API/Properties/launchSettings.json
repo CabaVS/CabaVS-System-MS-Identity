@@ -9,6 +9,14 @@
     }
   },
   "profiles": {
+    "IdentityMS": {
+      "commandName": "Project",
+      "launchBrowser": false,
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      },
+      "applicationUrl": "https://localhost:44371"
+    },
     "IIS Express": {
       "commandName": "IISExpress",
       "launchBrowser": false,

@@ -73,6 +73,10 @@ namespace CabaVS.IdentityMS.API
 
         public void Configure(IApplicationBuilder app)
         {
+            app.UseHttpsRedirection();
+
+            app.UseCors(builder => builder.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin());
+
             if (Environment.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
@@ -89,10 +93,6 @@ namespace CabaVS.IdentityMS.API
                     await context.Response.WriteAsync(result);
                 }));
             }
-
-            app.UseCors(builder => builder.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin());
-
-            app.UseHttpsRedirection();
 
             app.UseRouting();
 
