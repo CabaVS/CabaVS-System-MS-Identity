@@ -98,7 +98,7 @@ namespace CabaVS.IdentityMS.API
 
             app.UseEndpoints(endpoints => endpoints.MapControllers());
 
-            app.RunMigrations<IdentityDbContext>();
+            app.RunMigrations<IdentityDbContext>(true, Configuration.GetConnectionString("Default"));
         }
     }
 }
